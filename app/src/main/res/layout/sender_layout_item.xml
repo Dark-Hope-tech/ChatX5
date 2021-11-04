@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--        android:id="@+id/profile_imageS"-->
+<!--        android:layout_width="@dimen/_25sdp"-->
+<!--        android:layout_height="@dimen/_25sdp"-->
+<!--        android:src="@drawable/disha_hd"-->
+<!--        app:civ_border_width="2dp"-->
+<!--        android:layout_margin="@dimen/_5sdp"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_centerVertical="true"-->
+<!--        android:layout_gravity="center"-->
+<!--        app:civ_border_color="@color/purple_200"/>-->
+    <TextView
+        android:id="@+id/txtmessageS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chat X5..."
+        android:padding="@dimen/_7sdp"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:fontFamily="@font/notoans"
+        android:background="@drawable/sender_shape"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_180sdp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_3sdp">
+    <ImageView
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:src="@drawable/off"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_6sdp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/luckiest"
+        android:textStyle="bold"
+        android:textSize="@dimen/_15sdp"
+        android:text="Are you Suar to \nlog out..?"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/Yes_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/_2sdp"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:background="@drawable/back_ground"
+                android:layout_gravity="center_horizontal"
+                android:text="YES! \nI am Suar"/>
+            <TextView
+                android:id="@+id/no_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:background="@drawable/back_ground"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_gravity="center"
+                android:text="NO! \nBut still I am Suar" />
+
+        </LinearLayout>
+
+</LinearLayout>

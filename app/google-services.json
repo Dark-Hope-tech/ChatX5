@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "632589058445",
+    "project_id": "chatx5-429c5",
+    "storage_bucket": "chatx5-429c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632589058445:android:83270c1eec50d39ef77dc4",
+        "android_client_info": {
+          "package_name": "com.example.chatx5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632589058445-k7p33jstneg03epu1knptiul00qqb641.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chatx5",
+            "certificate_hash": "928a5c679e6c37bcc6eb33a101be2e2123c876c9"
+          }
+        },
+        {
+          "client_id": "632589058445-v7lbt3naachnk3n7sg1hhj36666ac91n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoDcV16yNanGgJrFmAo6l5Kyr2sQIqpCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632589058445-v7lbt3naachnk3n7sg1hhj36666ac91n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
