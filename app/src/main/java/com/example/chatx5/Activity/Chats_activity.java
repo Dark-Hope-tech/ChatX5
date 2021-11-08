@@ -1,4 +1,4 @@
-package com.example.chatx5;
+package com.example.chatx5.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,14 +9,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chatx5.ModelClass.Messages;
+import com.example.chatx5.R;
+import com.example.chatx5.messagesAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +27,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -88,6 +88,7 @@ public class Chats_activity extends AppCompatActivity {
                     arrayList.add(messages);
                 }
                 adapter.notifyDataSetChanged();
+                MessageAdapter.smoothScrollToPosition(MessageAdapter.getAdapter().getItemCount());
             }
 
             @Override

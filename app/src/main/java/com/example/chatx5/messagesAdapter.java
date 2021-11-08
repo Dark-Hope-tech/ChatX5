@@ -2,29 +2,20 @@ package com.example.chatx5;
 
 
 
-import static com.example.chatx5.Chats_activity.rImage;
-import static com.example.chatx5.Chats_activity.sImage;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.bumptech.glide.annotation.GlideModule;
-import com.bumptech.glide.module.AppGlideModule;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.chatx5.ModelClass.Messages;
+import com.example.chatx5.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.squareup.picasso.Picasso;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

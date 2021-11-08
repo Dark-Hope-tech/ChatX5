@@ -11,7 +11,6 @@ public class user {
     public user() {
 
     }
-
     public user(String uid, String name, String mail, String imageURI,String status) {
         this.uid = uid;
         this.name = name;

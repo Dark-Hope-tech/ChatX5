@@ -1,4 +1,4 @@
-package com.example.chatx5;
+package com.example.chatx5.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chatx5.R;
+import com.example.chatx5.user;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -100,7 +102,7 @@ public class Registration extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-
+//cd
                                 DatabaseReference reference=database.getReference().child("user").child(auth.getUid());
                                 StorageReference storageReference=storage.getReference().child("upload").child(auth.getUid());
 
@@ -152,8 +154,7 @@ public class Registration extends AppCompatActivity {
                                 Toast.makeText(Registration.this, "User registered Successfully", Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                Toast.makeText(Registration.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-
+                                Toast.makeText(Registration.this, "Something went wrong in creating user", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

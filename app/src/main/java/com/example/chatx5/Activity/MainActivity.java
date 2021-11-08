@@ -1,10 +1,12 @@
-package com.example.chatx5;
+package com.example.chatx5.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.os.Handler;
 import android.view.WindowManager;
+
+import com.example.chatx5.R;
 
 public class MainActivity extends AppCompatActivity {
     private static int SPLASH_SCREEN_TIME_OUT=2000;
@@ -23,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }, SPLASH_SCREEN_TIME_OUT);
     }
-
 }
 
 

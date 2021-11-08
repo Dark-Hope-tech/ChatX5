@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.chatx5.Activity.Chats_activity;
+import com.example.chatx5.Activity.home_activity;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -35,6 +38,9 @@ public class user_adapter extends RecyclerView.Adapter<user_adapter.Viewholdler>
     @Override
     public void onBindViewHolder(@NonNull Viewholdler holder, int position) {
         user use=userArrayList.get(position);
+        if(FirebaseAuth.getInstance().getCurrentUser().getUid().equals(use.getUid())){
+            holder.itemView.setVisibility(View.GONE);
+        }
         holder.user_name.setText(use.name);
         holder.user_status.setText(use.status);
         Picasso.get().load(use.ImageURI).into(holder.userprofile);

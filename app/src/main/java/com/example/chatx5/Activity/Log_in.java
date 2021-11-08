@@ -1,4 +1,4 @@
-package com.example.chatx5;
+package com.example.chatx5.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chatx5.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -41,9 +42,6 @@ public class Log_in extends AppCompatActivity {
         log_in_mail=findViewById(R.id.log_in_email);
         log_in_pas=findViewById(R.id.log_in_pass);
         sign_in_btn=findViewById(R.id.sing_in_btn);
-
-
-
         sign_in_btn.setOnClickListener(new View.OnClickListener() {
 
             @Override

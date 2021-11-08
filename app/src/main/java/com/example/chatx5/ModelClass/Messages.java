@@ -1,4 +1,4 @@
-package com.example.chatx5;
+package com.example.chatx5.ModelClass;
 
 public class Messages {
     String message;
