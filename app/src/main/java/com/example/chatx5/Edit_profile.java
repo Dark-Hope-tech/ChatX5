@@ -34,7 +34,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Edit_profile extends AppCompatActivity {
     CircleImageView profile_image;
     EditText profile_name,profile_status;
-    TextView profile_email,save_btn;
+    TextView profile_email,save_btn,cancel_btn;
     String name,email,status;
     FirebaseAuth auth;
     FirebaseStorage storage;
@@ -55,6 +55,7 @@ public class Edit_profile extends AppCompatActivity {
         profile_status=findViewById(R.id.profile_status);
         profile_email=findViewById(R.id.profile_email);
         save_btn=findViewById(R.id.save_btn);
+        cancel_btn=findViewById(R.id.cancel_btn);
         auth = FirebaseAuth.getInstance();
         database =FirebaseDatabase.getInstance();
         storage=FirebaseStorage.getInstance();
@@ -89,14 +90,19 @@ public class Edit_profile extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), 10);
             }
         });
-
+        cancel_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Edit_profile.this, home_activity.class));
+            }
+        });
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 name=profile_name.getText().toString();
                 status=profile_status.getText().toString();
-                if(profile_image!=null){
+                if(SelectedImgeURI!=null){
                     progressDialog.show();
                     storageReference.putFile(SelectedImgeURI).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override

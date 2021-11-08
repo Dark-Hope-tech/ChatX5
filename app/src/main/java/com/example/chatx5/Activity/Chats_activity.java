@@ -31,12 +31,12 @@ import java.util.Date;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Chats_activity extends AppCompatActivity {
-    String ReceiverID,SenderID,ReceiverImage,ReceiverName,SenderRoom,ReceiverRoom;
+    public String ReceiverID,SenderID,ReceiverImage,ReceiverName,SenderRoom,ReceiverRoom;
     CircleImageView profileImage;
     TextView receiverName;
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth firebaseAuth;
-    public static String sImage,rImage;
+    public static String rImage;
     CardView send_btn;
     EditText editText;
     RecyclerView MessageAdapter;
@@ -54,6 +54,8 @@ public class Chats_activity extends AppCompatActivity {
         ReceiverName=getIntent().getStringExtra("name");
         ReceiverID=getIntent().getStringExtra("uid");
         ReceiverImage=getIntent().getStringExtra("ReceiverImage");
+
+        rImage=ReceiverImage;
 
         arrayList=new ArrayList<>();
 

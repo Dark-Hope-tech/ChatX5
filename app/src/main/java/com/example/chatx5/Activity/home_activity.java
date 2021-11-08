@@ -66,34 +66,6 @@ public class home_activity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter=new user_adapter(home_activity.this,userArrayList);
         recyclerView.setAdapter(adapter);
-//        imageView=findViewById(R.id.log_out_btn);
-//        imageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Dialog dialog= new Dialog(home_activity.this,R.style.Dioluge);
-//                dialog.setContentView(R.layout.dialog_layout);
-//                dialog.show();
-//                yes_btn=dialog.findViewById(R.id.Yes_btn);
-//                no_btn=dialog.findViewById(R.id.no_btn);
-//
-//                yes_btn.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        FirebaseAuth.getInstance().signOut();
-//                        startActivity(new Intent(home_activity.this,Log_in.class));
-//                    }
-//                });
-//
-//                no_btn.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        dialog.dismiss();
-//                    }
-//                });
-//            }
-//        });
-
-
         if(auth.getCurrentUser()==null){
             startActivity(new Intent(home_activity.this, Registration.class));
         }

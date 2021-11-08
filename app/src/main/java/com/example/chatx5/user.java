@@ -2,12 +2,15 @@ package com.example.chatx5;
 
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 public class user {
     String uid;
     String name;
     String mail;
     String ImageURI;
     String status;
+    ArrayList<String> friends;
     public user() {
 
     }

@@ -2,6 +2,9 @@ package com.example.chatx5;
 
 
 
+
+import static com.example.chatx5.Activity.Chats_activity.rImage;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.chatx5.ModelClass.Messages;
 import com.example.chatx5.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -55,7 +59,7 @@ public class messagesAdapter extends RecyclerView.Adapter {
         else{
             ReceiverViewHolder viewHolder= (ReceiverViewHolder) holder;
             viewHolder.txtmessage.setText(messages.getMessage());
-//            Picasso.get().load(rImage).into(viewHolder.ProfileImageR);
+            Picasso.get().load(rImage).into(viewHolder.ProfileImageR);
         }
     }
 
@@ -80,7 +84,7 @@ public class messagesAdapter extends RecyclerView.Adapter {
         TextView txtmessage;
         public SenderViewHolder(@NonNull View itemView) {
             super(itemView);
-//            ProfileImageS=itemView.findViewById(R.id.profile_imageS);
+//            ProfileImageS=itemView.findViewById(R.id.profile_image_choti);
             txtmessage=itemView.findViewById(R.id.txtmessageS);
         }
     }
@@ -89,7 +93,7 @@ public class messagesAdapter extends RecyclerView.Adapter {
         TextView txtmessage;
         public ReceiverViewHolder(@NonNull View itemView) {
             super(itemView);
-//            ProfileImageR=itemView.findViewById(R.id.profile_imageR);
+            ProfileImageR=itemView.findViewById(R.id.profile_image_choti);
             txtmessage=itemView.findViewById(R.id.txtmessageR);
         }
     }
