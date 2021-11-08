@@ -5,17 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
+import com.example.chatx5.Edit_profile;
 import com.example.chatx5.R;
 import com.example.chatx5.user;
 import com.example.chatx5.user_adapter;
@@ -70,7 +67,6 @@ public class home_activity extends AppCompatActivity {
         adapter=new user_adapter(home_activity.this,userArrayList);
         recyclerView.setAdapter(adapter);
 //        imageView=findViewById(R.id.log_out_btn);
-
 //        imageView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -119,7 +115,7 @@ public class home_activity extends AppCompatActivity {
             startActivity(new Intent(home_activity.this,Log_in.class));
         }
         else if(item.getTitle().equals("Change Profile")){
-            startActivity(new Intent(home_activity.this,Edit_profile.class));
+            startActivity(new Intent(home_activity.this, Edit_profile.class));
         }
         return super.onOptionsItemSelected(item);
     }

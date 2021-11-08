@@ -1,16 +1,19 @@
-package com.example.chatx5.Activity;
+package com.example.chatx5;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.chatx5.Activity.home_activity;
 import com.example.chatx5.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -37,9 +40,15 @@ public class Edit_profile extends AppCompatActivity {
     FirebaseStorage storage;
     FirebaseDatabase database;
     Uri SelectedImgeURI;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Please wait....");
+        progressDialog.setCancelable(false);
+
         setContentView(R.layout.activity_edit_profile);
         profile_image=findViewById(R.id.profile_image);
         profile_name=findViewById(R.id.profile_name);
@@ -52,12 +61,13 @@ public class Edit_profile extends AppCompatActivity {
 
         DatabaseReference reference= FirebaseDatabase.getInstance().getReference().child("user").child(auth.getUid());
         StorageReference storageReference=storage.getReference().child("upload").child(auth.getUid());
+
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String email=snapshot.child("email").getValue().toString();
-                String name=snapshot.child("name").getValue().toString();
-                String status=snapshot.child("Status").getValue().toString();
+                email=snapshot.child("mail").getValue().toString();
+                name=snapshot.child("name").getValue().toString();
+                status=snapshot.child("status").getValue().toString();
                 String image=snapshot.child("imageURI").getValue().toString();
                 profile_name.setText(name);
                 profile_email.setText(email);
@@ -83,7 +93,11 @@ public class Edit_profile extends AppCompatActivity {
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                name=profile_name.getText().toString();
+                status=profile_status.getText().toString();
                 if(profile_image!=null){
+                    progressDialog.show();
                     storageReference.putFile(SelectedImgeURI).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
@@ -91,6 +105,45 @@ public class Edit_profile extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     String finalImageURI=uri.toString();
+                                    user us=new user(auth.getUid(),name,email,finalImageURI,status);
+                                    reference.setValue(us).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if(task.isSuccessful()){
+                                                progressDialog.dismiss();
+                                                Toast.makeText(Edit_profile.this, "Profile Successfully Updated", Toast.LENGTH_SHORT).show();
+                                                startActivity(new Intent(Edit_profile.this, home_activity.class));
+                                            }
+                                            else{
+                                                progressDialog.dismiss();
+                                                Toast.makeText(Edit_profile.this, "Something went Wrong", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+                else{
+                    progressDialog.show();
+                    storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            String finalImageURI=uri.toString();
+                            user us=new user(auth.getUid(),name,email,finalImageURI,status);
+                            reference.setValue(us).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        progressDialog.dismiss();
+                                        Toast.makeText(Edit_profile.this, "Profile Successfully Updated", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(Edit_profile.this, home_activity.class));
+                                    }
+                                    else{
+                                        progressDialog.dismiss();
+                                        Toast.makeText(Edit_profile.this, "Something went Wrong", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             });
                         }

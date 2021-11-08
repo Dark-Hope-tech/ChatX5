@@ -10,6 +10,7 @@
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/drawable/item_user_row.xml" value="0.25925925925925924" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/drawable/reciever_shape.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/drawable/round_corner.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/drawable/search_back.xml" value="0.25925925925925924" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/drawable/sender_shape.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/drawable/shape_dialog.xml" value="0.2462962962962963" />
@@ -29,6 +30,7 @@
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/dialog_layout.xml" value="0.264" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/item_user_row.xml" value="0.26145833333333335" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/reciever_layout_item.xml" value="0.2" />
+        <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/round_corner.xml" value="0.25" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/sender_layout_item.xml" value="0.25" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/toobar.xml" value="0.25" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/toolbar.xml" value="0.25" />
