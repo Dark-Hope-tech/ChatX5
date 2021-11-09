@@ -9,13 +9,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.chatx5.Edit_profile;
 import com.example.chatx5.R;
+import com.example.chatx5.random_chat_home;
 import com.example.chatx5.user;
 import com.example.chatx5.user_adapter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,9 +36,8 @@ public class home_activity extends AppCompatActivity {
     user_adapter adapter;
     FirebaseDatabase database;
     ArrayList<user> userArrayList;
-    ImageView imageView;
-    TextView yes_btn,no_btn;
-
+    Boolean isLogedout=false;
+    TextView btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +46,15 @@ public class home_activity extends AppCompatActivity {
         auth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
         userArrayList=new ArrayList<>();
-
-
+        ManageConnection();
+        btn=findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(home_activity.this, random_chat_home.class));
+                finish();
+            }
+        });
         DatabaseReference reference=database.getReference("user");
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -83,12 +94,39 @@ public class home_activity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getTitle().equals("Log Out")){
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(home_activity.this,Log_in.class));
+            isLogedout=true;
+            DatabaseReference reff=database.getReference().child("presence").child(auth.getUid());
+            reff.setValue("Offline").addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()) {
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(home_activity.this,Log_in.class));
+                    }
+                }
+            });
         }
         else if(item.getTitle().equals("Change Profile")){
             startActivity(new Intent(home_activity.this, Edit_profile.class));
         }
         return super.onOptionsItemSelected(item);
+    }
+    private void ManageConnection(){
+        DatabaseReference ref=database.getReference("presence/"+auth.getUid());
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DatabaseReference reff=database.getReference().child("presence").child(auth.getUid());
+                if(!isLogedout) {
+                    reff.setValue("Online");
+                    reff.onDisconnect().setValue("Offline");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

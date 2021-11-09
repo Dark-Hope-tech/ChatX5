@@ -34,7 +34,7 @@ public class Chats_activity extends AppCompatActivity {
     public String ReceiverID,SenderID,ReceiverImage,ReceiverName,SenderRoom,ReceiverRoom;
     CircleImageView profileImage;
     TextView receiverName;
-    FirebaseDatabase firebaseDatabase;
+    FirebaseDatabase firebaseDatabase,database;
     FirebaseAuth firebaseAuth;
     public static String rImage;
     CardView send_btn;
@@ -43,6 +43,7 @@ public class Chats_activity extends AppCompatActivity {
     ArrayList<Messages> arrayList;
     messagesAdapter adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,7 @@ public class Chats_activity extends AppCompatActivity {
 
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
+        database=FirebaseDatabase.getInstance();
 
         ReceiverName=getIntent().getStringExtra("name");
         ReceiverID=getIntent().getStringExtra("uid");
@@ -57,6 +59,7 @@ public class Chats_activity extends AppCompatActivity {
 
         rImage=ReceiverImage;
 
+        ManageConnection();
         arrayList=new ArrayList<>();
 
         profileImage=findViewById(R.id.profile_image);
@@ -129,6 +132,22 @@ public class Chats_activity extends AppCompatActivity {
                         });
                     }
                 });
+            }
+        });
+    }
+    private void ManageConnection(){
+        DatabaseReference ref=database.getReference("presence/"+firebaseAuth.getUid());
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DatabaseReference reff=database.getReference().child("presence").child(firebaseAuth.getUid());
+                reff.setValue("Online");
+                reff.onDisconnect().setValue("Offline");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }

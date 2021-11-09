@@ -39,7 +39,10 @@ public class user_adapter extends RecyclerView.Adapter<user_adapter.Viewholdler>
     public void onBindViewHolder(@NonNull Viewholdler holder, int position) {
         user use=userArrayList.get(position);
         if(FirebaseAuth.getInstance().getCurrentUser().getUid().equals(use.getUid())){
-            holder.itemView.setVisibility(View.GONE);
+//            holder.itemView.setVisibility(View.GONE);
+            ViewGroup.LayoutParams params = holder.itemView.getLayoutParams();
+            params.height = 0;
+            holder.itemView.setLayoutParams(params);
         }
         holder.user_name.setText(use.name);
         holder.user_status.setText(use.status);

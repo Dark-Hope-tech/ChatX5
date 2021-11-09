@@ -20,15 +20,18 @@
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_chat.xml" value="0.26145833333333335" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_chats.xml" value="0.264" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
+        <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_group_chat.xml" value="0.25" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_log_in.xml" value="0.26145833333333335" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_log_in2.xml" value="0.264" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_profile.xml" value="0.26145833333333335" />
+        <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_random_chat_home.xml" value="0.25" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_registration.xml" value="0.264" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/activity_temp_to_be_del.xml" value="0.24739583333333334" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/dialog_layout.xml" value="0.264" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/item_user_row.xml" value="0.26145833333333335" />
+        <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/rand_user_row.xml" value="0.6" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/reciever_layout_item.xml" value="0.536" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/round_corner.xml" value="0.25" />
         <entry key="..\:/Users/tabis/ChatX5/app/src/main/res/layout/sender_layout_item.xml" value="0.25" />

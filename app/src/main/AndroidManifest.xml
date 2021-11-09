@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatX5">
         <activity
+            android:name=".random_chat_home"
+            android:exported="true" />
+        <activity
+            android:name=".Group_chat"
+            android:exported="true" />
+        <activity
             android:name=".Edit_profile"
             android:exported="true" />
         <activity
