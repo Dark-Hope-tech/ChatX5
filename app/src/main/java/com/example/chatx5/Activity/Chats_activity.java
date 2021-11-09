@@ -89,10 +89,11 @@ public class Chats_activity extends AppCompatActivity {
                     Messages messages=dataSnapshot.getValue(Messages.class);
                     arrayList.add(messages);
                 }
+//                MessageAdapter.smoothScrollToPosition(MessageAdapter.getAdapter().getItemCount()-1);
+                MessageAdapter.scrollToPosition(arrayList.size()-1);
                 adapter.notifyDataSetChanged();
-                MessageAdapter.smoothScrollToPosition(MessageAdapter.getAdapter().getItemCount());
-            }
 
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

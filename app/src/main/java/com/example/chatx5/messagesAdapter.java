@@ -68,6 +68,7 @@ public class messagesAdapter extends RecyclerView.Adapter {
         return messagesArrayList.size();
     }
 
+
     @Override
     public int getItemViewType(int position) {
         Messages messages=messagesArrayList.get(position);
