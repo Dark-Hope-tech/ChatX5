@@ -10,7 +10,6 @@ public class user {
     String mail;
     String ImageURI;
     String status;
-    ArrayList<String> friends;
     public user() {
 
     }

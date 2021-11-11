@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.chatx5.Activity.Chats_activity;
 import com.example.chatx5.Activity.home_activity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,7 +47,8 @@ public class user_adapter extends RecyclerView.Adapter<user_adapter.Viewholdler>
         }
         holder.user_name.setText(use.name);
         holder.user_status.setText(use.status);
-        Picasso.get().load(use.ImageURI).into(holder.userprofile);
+//        Picasso.get().load(use.ImageURI).into(holder.userprofile);
+        Glide.with(home_activit).load(use.ImageURI).into(holder.userprofile);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

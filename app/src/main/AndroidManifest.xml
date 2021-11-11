@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatX5">
         <activity
+            android:name=".Friend_Ac"
+            android:exported="true" />
+        <activity
+            android:name=".Find_friend"
+            android:exported="true" />
+        <activity
             android:name=".random_chat_home"
             android:exported="true" />
         <activity

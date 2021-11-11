@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.chatx5.ModelClass.Messages;
 import com.example.chatx5.R;
 import com.example.chatx5.messagesAdapter;
@@ -69,11 +71,13 @@ public class Chats_activity extends AppCompatActivity {
         SenderID=firebaseAuth.getUid();
         MessageAdapter=findViewById(R.id.message_adapter);
 
-        Picasso.get().load(ReceiverImage).into(profileImage);
+//        Picasso.get().load(ReceiverImage).into(profileImage);
+        Glide.with(this).load(ReceiverImage).into(profileImage);
 
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         MessageAdapter.setLayoutManager(linearLayoutManager);
+        MessageAdapter.scrollToPosition(arrayList.size()-1);
         adapter=new messagesAdapter(Chats_activity.this, arrayList);
         MessageAdapter.setAdapter(adapter);
 
@@ -93,13 +97,18 @@ public class Chats_activity extends AppCompatActivity {
                     arrayList.add(messages);
                 }
 //                MessageAdapter.smoothScrollToPosition(MessageAdapter.getAdapter().getItemCount()-1);
-                MessageAdapter.scrollToPosition(arrayList.size()-1);
                 adapter.notifyDataSetChanged();
-
+                MessageAdapter.scrollToPosition(adapter.getItemCount()-1);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        MessageAdapter.post(new Runnable() {
+            @Override
+            public void run() {
+                MessageAdapter.scrollToPosition(adapter.getItemCount()-1);
             }
         });
         send_btn.setOnClickListener(new View.OnClickListener() {
@@ -151,4 +160,5 @@ public class Chats_activity extends AppCompatActivity {
             }
         });
     }
+
 }

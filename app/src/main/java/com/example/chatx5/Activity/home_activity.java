@@ -15,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chatx5.Edit_profile;
+import com.example.chatx5.Find_friend;
+import com.example.chatx5.Friend_Ac;
 import com.example.chatx5.R;
 import com.example.chatx5.random_chat_home;
 import com.example.chatx5.user;
@@ -37,7 +39,7 @@ public class home_activity extends AppCompatActivity {
     FirebaseDatabase database;
     ArrayList<user> userArrayList;
     Boolean isLogedout=false;
-    TextView btn;
+    TextView friend_search,friend_req_ac;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,24 +49,46 @@ public class home_activity extends AppCompatActivity {
         database=FirebaseDatabase.getInstance();
         userArrayList=new ArrayList<>();
         ManageConnection();
-        btn=findViewById(R.id.btn);
-        btn.setOnClickListener(new View.OnClickListener() {
+        friend_search=findViewById(R.id.btn);
+        friend_req_ac=findViewById(R.id.btn2);
+
+        friend_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(home_activity.this, random_chat_home.class));
+                startActivity(new Intent(home_activity.this, Find_friend.class));
                 finish();
             }
         });
-        DatabaseReference reference=database.getReference("user");
-
-        reference.addValueEventListener(new ValueEventListener() {
+        friend_req_ac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(home_activity.this, Friend_Ac.class));
+            }
+        });
+        recyclerView=findViewById(R.id.main_user_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        DatabaseReference databaseReference=database.getReference().child("friends").child("AcceptedFriends").child(auth.getUid());
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
-                    user user=dataSnapshot.getValue(user.class);
-                    userArrayList.add(user);
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    String id=dataSnapshot.getKey();
+                    DatabaseReference reference=database.getReference().child("user").child(id);
+                    reference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            user use=snapshot.getValue(user.class);
+                            userArrayList.add(use);
+                            adapter=new user_adapter(home_activity.this,userArrayList);
+                            recyclerView.setAdapter(adapter);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
-                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -72,11 +96,23 @@ public class home_activity extends AppCompatActivity {
 
             }
         });
+//        DatabaseReference reference=database.getReference("user");
+//        reference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+//                    user user=dataSnapshot.getValue(user.class);
+//                    userArrayList.add(user);
+//                }
+//                adapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
-        recyclerView=findViewById(R.id.main_user_recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter=new user_adapter(home_activity.this,userArrayList);
-        recyclerView.setAdapter(adapter);
         if(auth.getCurrentUser()==null){
             startActivity(new Intent(home_activity.this, Registration.class));
         }

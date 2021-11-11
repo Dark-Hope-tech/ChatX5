@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.chatx5.ModelClass.Messages;
 import com.example.chatx5.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -59,7 +60,8 @@ public class messagesAdapter extends RecyclerView.Adapter {
         else{
             ReceiverViewHolder viewHolder= (ReceiverViewHolder) holder;
             viewHolder.txtmessage.setText(messages.getMessage());
-            Picasso.get().load(rImage).into(viewHolder.ProfileImageR);
+//            Picasso.get().load(rImage).into(viewHolder.ProfileImageR);
+            Glide.with(context).load(rImage).into(viewHolder.ProfileImageR);
         }
     }
 

@@ -2,6 +2,7 @@ package com.example.chatx5.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.VirtualLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -31,6 +32,7 @@ public class Log_in extends AppCompatActivity {
     FirebaseAuth auth;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     ProgressDialog progressDialog;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class Log_in extends AppCompatActivity {
         progressDialog.setMessage("Please wait....");
         progressDialog.setCancelable(false);
 
+        database=FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(Log_in.this, home_activity.class));
