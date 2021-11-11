@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_200sdp"
+    android:background="@color/purple_app"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="@dimen/_20sdp">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/nav_profileimage"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/disha_hd"
+        app:civ_border_color="@color/purple_app"
+        app:civ_border_width="2dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/nav_name"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo"
+        android:text="Huehue"
+        android:textSize="@dimen/_20sdp" />
+</LinearLayout>
