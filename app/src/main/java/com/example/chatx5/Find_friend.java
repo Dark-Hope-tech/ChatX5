@@ -3,6 +3,7 @@ package com.example.chatx5;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chatx5.Activity.home_activity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +27,7 @@ public class Find_friend extends AppCompatActivity {
     FirebaseDatabase database;
     FirebaseAuth auth;
     String email;
-    TextView txv;
+    TextView txv,friend_name,friend_email;
     Button button;
     LinearLayout user_found;
     boolean isFound=false;
@@ -39,6 +41,8 @@ public class Find_friend extends AppCompatActivity {
         user_found=findViewById(R.id.user_found);
         user_found.setVisibility(LinearLayout.INVISIBLE);
         button=findViewById(R.id.search);
+        friend_name=findViewById(R.id.friend_name);
+        friend_email=findViewById(R.id.friend_email);
 
         auth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
@@ -63,6 +67,8 @@ public class Find_friend extends AppCompatActivity {
                     if(com.equals(mail)){
                         txv.setVisibility(TextView.INVISIBLE);
                         user_found.setVisibility(LinearLayout.VISIBLE);
+                        friend_name.setText(us.getName());
+                        friend_email.setText(us.getMail());
                         user_found.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -90,5 +96,11 @@ public class Find_friend extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(Find_friend.this, home_activity.class));
     }
 }

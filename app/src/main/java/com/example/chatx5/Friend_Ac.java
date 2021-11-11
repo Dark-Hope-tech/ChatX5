@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -59,5 +60,10 @@ public class Friend_Ac extends AppCompatActivity {
             }
         });
 //        Log.d("array",pendingFriendReq.get(0));
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(Friend_Ac.this, home_activity.class));
     }
 }

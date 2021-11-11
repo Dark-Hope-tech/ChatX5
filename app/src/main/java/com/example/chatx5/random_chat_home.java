@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.chatx5.Activity.Chats_activity;
+import com.example.chatx5.Activity.home_activity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,5 +56,10 @@ public class random_chat_home extends AppCompatActivity {
         random_recycler_view.setLayoutManager(linearLayoutManager);
         rand_adpt= new random_adapter(random_chat_home.this, userArrayList);
         random_recycler_view.setAdapter(rand_adpt);
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(random_chat_home.this, home_activity.class));
     }
 }
