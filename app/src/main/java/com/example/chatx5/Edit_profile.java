@@ -93,7 +93,8 @@ public class Edit_profile extends AppCompatActivity {
         cancel_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Edit_profile.this, home_activity.class));
+//                startActivity(new Intent(Edit_profile.this, home_activity.class));
+                onBackPressed();
             }
         });
         save_btn.setOnClickListener(new View.OnClickListener() {
@@ -168,4 +169,5 @@ public class Edit_profile extends AppCompatActivity {
             }
         }
     }
+
 }

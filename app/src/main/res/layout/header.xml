@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_200sdp"
-    android:background="@color/purple_app"
+    android:background="#479075"
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="@dimen/_20sdp">
@@ -12,7 +12,7 @@
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:src="@drawable/disha_hd"
-        app:civ_border_color="@color/purple_app"
+        app:civ_border_color="#479075"
         app:civ_border_width="2dp" />
 
     <TextView

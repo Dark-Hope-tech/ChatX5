@@ -4,117 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_ground"
+    android:background="#2C2C2C "
     tools:context=".Activity.Log_in">
 
 
     <LinearLayout
-        android:layout_marginTop="90dp"
-        android:id="@+id/login_mid_sec"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center|top"
-            android:background="@drawable/image" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:fontFamily="@font/explora"
-            android:gravity="center"
-            android:text="CHAT X5 karo bate jee bhar ke"
-            android:textSize="25dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/log_in_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:background="@drawable/edit_text_shape"
-            android:fontFamily="@font/notoans"
-            android:hint="USER NAME "
-            android:padding="@dimen/_10sdp" />
-
-        <EditText
-            android:id="@+id/log_in_pass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:background="@drawable/edit_text_shape"
-            android:fontFamily="@font/notoans"
-            android:hint="PASSWORD "
-            android:padding="@dimen/_10sdp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent"
         android:layout_marginBottom="5sp"
         android:gravity="center"
+        android:id="@+id/lll1"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:id="@+id/login_mid_sec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center|top"
+                android:background="@drawable/ic_image_purp" />
+
+            <EditText
+                android:id="@+id/log_in_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@drawable/edit_text_shape"
+                android:fontFamily="@font/notoans"
+                android:hint="ENTER YOUR EMAIL "
+                android:padding="@dimen/_10sdp"
+                android:textColorHint="@color/grey_light" />
+
+            <EditText
+                android:id="@+id/log_in_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@drawable/edit_text_shape"
+                android:fontFamily="@font/notoans"
+                android:hint="PASSWORD "
+                android:padding="@dimen/_10sdp"
+                android:textColorHint="@color/grey_light" />
+        </LinearLayout>
         <TextView
             android:id="@+id/sing_in_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_margin="@dimen/_30sdp"
             android:background="@drawable/sign_in_btn"
-            android:fontFamily="@font/luckiest"
+            android:fontFamily="@font/robotoblack"
             android:gravity="center"
-            android:padding="@dimen/_10sdp"
-            android:text="Log In"
-            android:textSize="19sp"
+            android:padding="@dimen/_5sdp"
+            android:text="   Log In  "
+            android:textSize="@dimen/_25sdp"
             android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5sp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_9sdp"
-                android:fontFamily="@font/luckiest"
-                android:text="New User?..."
-                android:textSize="@dimen/_17sdp" />
-
-            <TextView
-                android:id="@+id/sign_in_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_9sdp"
-                android:fontFamily="@font/luckiest"
-                android:text="Sign In"
-                android:textColor="@color/purple_app"
-                android:textSize="@dimen/_17sdp" />
-        </LinearLayout>
-
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5sp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_9sdp"
+            android:fontFamily="@font/robotoblack"
+            android:text="New User?..."
+            android:textColor="#B4B4B4"
+            android:textSize="@dimen/_17sdp" />
+
+        <TextView
+            android:id="@+id/sign_in_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/_9sdp"
+            android:fontFamily="@font/robotoblack"
+            android:text="Sign UP"
+            android:textColor="#479075"
+            android:textSize="@dimen/_17sdp" />
+    </LinearLayout>
 
 </RelativeLayout>

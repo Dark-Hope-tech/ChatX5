@@ -33,7 +33,9 @@ import com.example.chatx5.user;
 import com.example.chatx5.user_adapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -87,22 +89,7 @@ public class home_activity extends AppCompatActivity implements NavigationView.O
         database = FirebaseDatabase.getInstance();
         userArrayList = new ArrayList<>();
         ManageConnection();
-        friend_search = findViewById(R.id.btn);
-        friend_req_ac = findViewById(R.id.btn2);
 
-        friend_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(home_activity.this, Find_friend.class));
-                finish();
-            }
-        });
-        friend_req_ac.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(home_activity.this, Friend_Ac.class));
-            }
-        });
         DatabaseReference ref = database.getReference().child("user").child(auth.getUid());
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -150,7 +137,13 @@ public class home_activity extends AppCompatActivity implements NavigationView.O
 
             }
         });
-
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(home_activity.this,Find_friend.class));
+            }
+        });
         if (auth.getCurrentUser() == null) {
             startActivity(new Intent(home_activity.this, Registration.class));
         }
@@ -221,6 +214,9 @@ public class home_activity extends AppCompatActivity implements NavigationView.O
                 break;
             case R.id.nav_editprofile:
                 startActivity(new Intent(home_activity.this, Edit_profile.class));
+                break;
+            case R.id.nav_requests:
+                startActivity(new Intent(home_activity.this,Friend_Ac.class));
                 break;
         }
         return true;

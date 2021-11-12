@@ -10,7 +10,7 @@
             android:title="Home" />
         <item
             android:id="@+id/nav_omegle"
-            android:icon="@drawable/ic_red"
+            android:icon="@drawable/ic_red_sg"
             android:title="Omegle" />
         <item
             android:id="@+id/nav_requests"
@@ -18,7 +18,8 @@
             android:title="Requests" />
     </group>
 
-    <item android:title="Authenication">
+    <item
+        android:title="@string/authenication">
         <menu>
             <group android:checkableBehavior="single">
                 <item

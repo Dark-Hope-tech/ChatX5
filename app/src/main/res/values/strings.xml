@@ -11,4 +11,5 @@
     <string name="login_failed">"Login failed"</string>
     <string name="nav_open">"Opened Navigation"</string>
     <string name="nav_closed">"Closed Navigation"</string>
+    <string name="authenication"><font color="#ffffff">Authenication</font></string>
 </resources>
