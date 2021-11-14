@@ -57,12 +57,11 @@ public class home_activity extends AppCompatActivity implements NavigationView.O
     FirebaseDatabase database;
     ArrayList<user> userArrayList;
     Boolean isLogedout = false;
-    TextView friend_search, friend_req_ac,nav_name;
+    TextView nav_name;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
     CircleImageView circleImageView;
-    String name, status, image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,20 +177,6 @@ public class home_activity extends AppCompatActivity implements NavigationView.O
             }
         });
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.sidemenu, menu);
-//        for (int i = 0; i < menu.size(); i++) {
-//            MenuItem menuItem = menu.getItem(i);
-//            SpannableString spannableString = new SpannableString(
-//                    menu.getItem(i).getTitle().toString()
-//            );
-//            spannableString.setSpan(new ForegroundColorSpan(Color.BLUE), 0, spannableString.length(), 0);
-//            menuItem.setTitle(spannableString);
-//        }
-//        return true;
-//    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

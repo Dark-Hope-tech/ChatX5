@@ -53,7 +53,6 @@ public class Friend_Ac extends AppCompatActivity {
                 frnd_adapter=new friend_req_adapter(Friend_Ac.this,pendingFriendReq);
                 friend_ac_RV.setAdapter(frnd_adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

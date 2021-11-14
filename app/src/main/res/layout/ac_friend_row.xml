@@ -11,7 +11,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_margin="@dimen/_10sdp"
-            android:id="@+id/user_image"
+            android:id="@+id/ac_user_image"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_70sdp"
             android:src="@drawable/profle_pic"
@@ -28,7 +28,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:id="@+id/user_name"
+                    android:id="@+id/ac_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -36,7 +36,7 @@
                     android:fontFamily="@font/notoans"
                     android:text="Name"/>
                 <TextView
-                    android:id="@+id/user_status"
+                    android:id="@+id/ac_user_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -50,7 +50,7 @@
                 android:layout_width="@dimen/_40sdp"
                 android:layout_gravity="center_vertical"
                 android:layout_height="@dimen/_46sdp"
-                android:id="@+id/del_img"
+                android:id="@+id/ac_del_img"
                 android:background="@drawable/ic_baseline_delete_24"/>
         </LinearLayout>
     </LinearLayout>

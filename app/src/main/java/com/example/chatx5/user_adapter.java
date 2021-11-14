@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.chatx5.Activity.Chats_activity;
 import com.example.chatx5.Activity.home_activity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -22,7 +28,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class user_adapter extends RecyclerView.Adapter<user_adapter.Viewholdler> {
     Context home_activit;
-    ArrayList<user> userArrayList;
+    ArrayList<user> userArrayList=new ArrayList<>();
+
+    public user_adapter(Context ctx) { this.home_activit = ctx; }
+    public void setItems(ArrayList<user> emp) { userArrayList.addAll(emp); }
 
     public user_adapter(home_activity home_activity, ArrayList<user> userArrayList) {
         this.home_activit=home_activity;
@@ -59,6 +68,22 @@ public class user_adapter extends RecyclerView.Adapter<user_adapter.Viewholdler>
                 home_activit.startActivity(intent);
             }
         });
+        holder.del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference reference= FirebaseDatabase.getInstance().getReference().child("friends").child("AcceptedFriends").child(FirebaseAuth.getInstance().getUid()).child(use.getUid());
+                reference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(home_activit, "Friend Successfully Deleted", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(home_activit, "Friend Not Deleted", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
     }
     @Override
     public int getItemCount() {
@@ -66,13 +91,14 @@ public class user_adapter extends RecyclerView.Adapter<user_adapter.Viewholdler>
     }
     class Viewholdler extends RecyclerView.ViewHolder {
         CircleImageView userprofile;
-        TextView user_name;
-        TextView user_status;
+        TextView user_name,user_status;
+        ImageView del;
         public Viewholdler(@NonNull View itemView) {
             super(itemView);
             userprofile=itemView.findViewById(R.id.user_image);
             user_name=itemView.findViewById(R.id.user_name);
             user_status= itemView.findViewById(R.id.user_status);
+            del=itemView.findViewById(R.id.del_img);
         }
     }
 }

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/grey_dark"
     android:layout_height="match_parent"
     tools:context=".Find_friend">
     <LinearLayout
@@ -19,14 +20,20 @@
                 android:id="@+id/search_friend"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:textColorHint="@color/grey_light"
                 android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:background="@drawable/edit_text_shape"
                 android:hint=" Friend's Email " />
-            <Button
+
+            <ImageView
                 android:id="@+id/search"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Search" />
+                android:background="@drawable/ic_baseline_search_24"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_5sdp" />
         </LinearLayout>
     </LinearLayout>
     <RelativeLayout
@@ -42,47 +49,63 @@
             android:layout_margin="@dimen/_10sdp"
             android:text="!!No user found with this mail"
             android:layout_height="wrap_content"/>
-        <LinearLayout
+
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/no_user"
+            android:id="@+id/saddog"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:src="@drawable/saddog" />
+
+        <LinearLayout
             android:id="@+id/user_found"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:orientation="horizontal">
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_margin="@dimen/_10sdp"
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/friend_image"
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"
-                android:src="@drawable/profle_pic"
-                app:civ_border_width="2dp"
                 android:layout_gravity="center"
-                app:civ_border_color="@color/black"/>
+                android:layout_margin="@dimen/_10sdp"
+                android:src="@drawable/profle_pic"
+                app:civ_border_color="@color/black"
+                app:civ_border_width="2dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/friend_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_15sdp"
                     android:fontFamily="@font/notoans"
-                    android:text="Name"/>
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
                 <TextView
                     android:id="@+id/friend_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/notoans"
+                    android:text="Email"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_18sdp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/notoans"
-                    android:text="Email"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
-
-
 </RelativeLayout>

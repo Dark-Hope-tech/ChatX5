@@ -4,37 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/back_ground"
+    android:background="@color/grey_dark"
     android:layout_height="match_parent"
     tools:context=".Activity.Edit_profile">
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
-        android:src="@drawable/disha_hd"
-        app:civ_border_color="@color/purple_app"
-        app:civ_border_width="2dp" />
 
     <LinearLayout
         android:id="@+id/midsec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_image"
         android:orientation="vertical">
-
         <TextView
             android:layout_width="match_parent"
+            android:id="@+id/text1"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_15sdp"
-            android:fontFamily="@font/luckiest"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="@font/robotoblack"
             android:gravity="center_horizontal"
             android:text="Click field to Edit"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="@dimen/_20sdp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/disha_hd"
+            app:civ_border_color="@color/purple_app"
+            app:civ_border_width="2dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,11 +45,13 @@
                 android:layout_weight="2"
                 android:fontFamily="@font/notoans"
                 android:text="Name"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_18sdp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/profile_name"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -68,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:textColor="@color/white"
                 android:fontFamily="@font/notoans"
                 android:text="Status"
                 android:textSize="@dimen/_18sdp"
@@ -76,6 +76,7 @@
             <EditText
                 android:id="@+id/profile_status"
                 android:layout_width="match_parent"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@null" />
@@ -93,6 +94,7 @@
                 android:layout_weight="2"
                 android:fontFamily="@font/notoans"
                 android:text="Email"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_18sdp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -105,7 +107,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/_30sdp"
         android:layout_marginEnd="1dp"
         android:gravity="center"
         android:orientation="horizontal">
@@ -120,11 +122,11 @@
             android:backgroundTint="@color/black"
             android:fontFamily="@font/notoans"
             android:gravity="center_horizontal"
-            android:padding="1dp"
+            android:padding="3dp"
             android:rotationX="8"
             android:shadowRadius="5"
             android:text="  Save  "
-            android:textColor="@color/purple_200"
+            android:textColor="@color/green"
             android:textSize="@dimen/_20sdp"
             android:textStyle="bold" />
 
@@ -138,13 +140,12 @@
             android:backgroundTint="@color/black"
             android:fontFamily="@font/notoans"
             android:gravity="center_horizontal"
-            android:padding="1dp"
+            android:padding="3dp"
             android:rotationX="8"
             android:shadowRadius="5"
             android:text="  Cancel  "
-            android:textColor="@color/purple_200"
+            android:textColor="@color/Red"
             android:textSize="@dimen/_20sdp"
             android:textStyle="bold" />
     </LinearLayout>
-
 </RelativeLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/back_ground"
+    android:background="@color/grey_dark"
     android:layout_height="match_parent"
     tools:context=".Activity.Registration">
 
@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/luckiest"
+        android:fontFamily="@font/robotoblack"
         android:gravity="center"
         android:text="Please Create your Account"
-        android:textColor="@color/black"
+        android:textColor="@color/grey_light"
         android:textSize="25sp"
         android:textStyle="bold" />
     <LinearLayout
@@ -27,22 +27,21 @@
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image"
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_90sdp"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
             android:src="@drawable/profle_pic"
             app:civ_border_width="2dp"
             android:layout_gravity="center"
             app:civ_border_color="#FF000000"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CHAT X5 karo bate jee bhar ke"
-            android:fontFamily="@font/explora"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:textSize="20dp"
-            android:gravity="center"
-            />
+            android:layout_width="wrap_content"
+            android:text="Select your profile image"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:fontFamily="@font/robotomedium"
+            android:layout_margin="@dimen/_10sdp"
+            android:textSize="@dimen/_20sdp"
+            android:layout_height="wrap_content"/>
         <EditText
             android:id="@+id/regis_name"
             android:layout_width="match_parent"
@@ -122,15 +121,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Already have a account ?"
-            android:fontFamily="@font/luckiest"
+            android:fontFamily="@font/robotoblack"
+            android:textColor="@color/white"
             android:textSize="@dimen/_17sdp" />
         <TextView
             android:id="@+id/log_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Log In"
-            android:textColor="@color/purple_app"
-            android:fontFamily="@font/luckiest"
+            android:padding="@dimen/_5sdp"
+            android:textColor="#479075"
+            android:fontFamily="@font/robotobold"
             android:textSize="@dimen/_17sdp" />
 
     </LinearLayout>

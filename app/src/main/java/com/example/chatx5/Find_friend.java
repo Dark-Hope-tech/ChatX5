@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ public class Find_friend extends AppCompatActivity {
     FirebaseAuth auth;
     String email;
     TextView txv,friend_name,friend_email;
-    Button button;
+    ImageView button,saddog;
     LinearLayout user_found;
     boolean isFound=false;
     @Override
@@ -43,9 +44,9 @@ public class Find_friend extends AppCompatActivity {
         button=findViewById(R.id.search);
         friend_name=findViewById(R.id.friend_name);
         friend_email=findViewById(R.id.friend_email);
-
         auth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
+        saddog=findViewById(R.id.saddog);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +67,7 @@ public class Find_friend extends AppCompatActivity {
                     String com=us.getMail().toString();
                     if(com.equals(mail)){
                         txv.setVisibility(TextView.INVISIBLE);
+                        saddog.setVisibility(ImageView.INVISIBLE);
                         user_found.setVisibility(LinearLayout.VISIBLE);
                         friend_name.setText(us.getName());
                         friend_email.setText(us.getMail());

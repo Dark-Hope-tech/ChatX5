@@ -10,6 +10,7 @@ public class user {
     String mail;
     String ImageURI;
     String status;
+    String key;
     public user() {
 
     }
@@ -33,6 +34,8 @@ public class user {
         return uid;
     }
 
+    public void setKey(String key) { this.key = key; }
+    public String getKey() { return key; }
 
     public void setUid(String uid) {
         this.uid = uid;
